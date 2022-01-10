@@ -30,8 +30,23 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = em.find(Member.class, 150L);
-            member.setName("bw");
+            Member member = new Member();
+            member.setUsername("C");
+
+            Member member2 = new Member();
+            member2.setUsername("D");
+
+            Member member3 = new Member();
+            member3.setUsername("E");
+
+            System.out.println("============");
+            em.persist(member);
+            em.persist(member2);
+            em.persist(member3);
+            System.out.println(member.getId());
+            System.out.println(member2.getId());
+            System.out.println(member3.getId());
+            System.out.println("============");
 
             /**
              * 영속성 컨택스트의 이점 (영속성 컨택스트는 고객의 요청 1:1 대응한다.)
